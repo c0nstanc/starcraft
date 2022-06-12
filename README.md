@@ -1,0 +1,2 @@
+# starcraft
+Starcraft related content
