@@ -11,5 +11,6 @@ export const environment = {
   assetsBaseUrl: '',
   apiBaseUrl: '/api/some-url',
   mocking: {
+    unitStatistics: true
   }
 };

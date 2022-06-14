@@ -14,6 +14,7 @@ export const environment = {
   logLevel: NgxLoggerLevel.TRACE,
   apiBaseUrl: '/api/some-url',
   mocking: {
+    unitStatistics: true
   }
 };
 
