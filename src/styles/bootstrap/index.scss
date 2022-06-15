@@ -38,7 +38,7 @@
 
 // 5. Add Add/Modify/Remove utilities (you will have to include utilities API next to generate the classes)
 @import "extra_utilities";
-$utilities: map-merge($utilities, $cursor_utility_item);
+$utilities: map-merge($utilities, $cursor_utility_item) !default;
 
 // 6. Optionally include utilities API last to generate classes based on the Sass map in `_utililies.scss`
 @import "~bootstrap/scss/utilities/api";

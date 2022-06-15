@@ -1,6 +1,1 @@
-@use "@c0nstanc/foundation-styles/scss/functions/map" as map;
-@use "../variables/space" as space;
-
-@function bs-space-of($key) {
-  @return map.get-safe(space.$spacers, $key);
-}
+@forward "@c0nstanc/bootstrap-styles/scss/functions/space";

@@ -1,0 +1,20 @@
+// @use "mixins/media" as media;
+
+// .test {
+//   background-color: red;
+//   @include media.breakpoint-up(sm) {
+//     background-color: blue;
+//   }
+
+//   @include media.breakpoint-up(md) {
+//     background-color: green;
+//   }
+
+//   @include media.breakpoint-up(lg) {
+//     background-color: purple;
+//   }
+
+//   @include media.breakpoint-up(xl) {
+//     background-color: pink;
+//   }
+// }
