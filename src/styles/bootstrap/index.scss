@@ -1,0 +1,49 @@
+// @use 'variables/space.scss' as space;
+// @use 'variables/breakpoint.scss' as breakpoint;
+
+// @forward '~bootstrap/scss/bootstrap'    with(
+//   $spacer: space.$spacer,
+//   $spacers: space.$spacers,
+//   $grid-breakpoints:  breakpoint.$grid-breakpoints,
+//   $headings-margin-bottom: 0,
+// );
+// @forward 'classes'; // ORDER MATTERS
+
+// Due to the fact that it will take a while for bootstrap
+// to migrate to SCSS Modules system, I have decided to use
+// what bootstrap recommends.  https://getbootstrap.com/docs/5.1/customize/sass/
+// Relevant issues:
+// - https://github.com/twbs/bootstrap/issues/29853
+// - https://github.com/twbs/bootstrap/issues/30025
+
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import "~bootstrap/scss/functions";
+
+// 2. Include any default variable overrides here
+@import "variables";
+
+// 3. Include remainder of required Bootstrap stylesheets
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/root";
+
+// 4. Include any optional Bootstrap CSS as needed
+@import "~bootstrap/scss/utilities";
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/type";
+@import "~bootstrap/scss/images";
+@import "~bootstrap/scss/containers";
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/helpers";
+
+// 5. Add Add/Modify/Remove utilities (you will have to include utilities API next to generate the classes)
+@import "extra_utilities";
+$utilities: map-merge($utilities, $cursor_utility_item);
+
+// 6. Optionally include utilities API last to generate classes based on the Sass map in `_utililies.scss`
+@import "~bootstrap/scss/utilities/api";
+
+// 7. Add additional custom code here
+@import "classes";
+
+@import "functions";
