@@ -1,10 +1,8 @@
-import { ScrollingModule } from '@angular/cdk/scrolling';
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { EnsureModuleLoadedOnceInAppModuleGuard } from '@c0nstanc/foundation-lib/guards';
 import { HttpErrorHandlingService, HttpErrorInterceptor } from '@c0nstanc/foundation-lib/http-utils';
 import { NavigationModule, NAVIGATION_LOGGING_SERVICE } from '@c0nstanc/foundation-lib/navigation';
-import { DefaultCurrencyCodeProvider, MatDateLocaleProvider, ProvidersModule } from '@c0nstanc/foundation-lib/providers';
 import { environment } from '@env';
 import { IModuleTranslationOptions, ModuleTranslateLoader } from '@larscom/ngx-translate-module-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -44,9 +42,8 @@ const moduleHttpLoaderFactory = (http: HttpClient) => {
       level: environment.logLevel,
       disableConsoleLogging: environment.disableConsoleLogging
     }),
-    ProvidersModule,
-    NavigationModule,
-    ScrollingModule,
+    // ProvidersModule,
+    NavigationModule
   ],
   providers: [
     {
@@ -59,8 +56,8 @@ const moduleHttpLoaderFactory = (http: HttpClient) => {
       multi: true,
     },
     { provide: NAVIGATION_LOGGING_SERVICE, useExisting: LoggingService },
-    DefaultCurrencyCodeProvider,
-    MatDateLocaleProvider
+    // DefaultCurrencyCodeProvider,
+    // MatDateLocaleProvider
   ]
 })
 export class CoreModule extends EnsureModuleLoadedOnceInAppModuleGuard {
