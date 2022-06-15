@@ -1,0 +1,7 @@
+@use "@angular/material" as mat;
+@use "material-theme" as material-theme;
+
+@include mat.core();
+
+@include mat.all-component-themes(material-theme.$material-theme);
+@include mat.strong-focus-indicators-theme(material-theme.$material-theme);

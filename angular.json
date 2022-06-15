@@ -36,6 +36,7 @@
             "scripts": [],
             "stylePreprocessorOptions": {
               "includePaths": [
+                "src/styles/material",
                 "src/styles/bootstrap",
                 "node_modules",
                 "src",
