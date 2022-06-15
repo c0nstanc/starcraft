@@ -33,7 +33,14 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "node_modules",
+                "src",
+                "src/styles/foundation"
+              ]
+            }
           },
           "configurations": {
             "production": {

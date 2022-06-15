@@ -1,0 +1,20 @@
+@use "../mixins/media" as media;
+@use "sass:meta";
+
+@include meta.load-css("extra-small-default");
+
+@include media.breakpoint-up(sm) {
+  @include meta.load-css("small");
+}
+
+@include media.breakpoint-up(md) {
+  @include meta.load-css("medium");
+}
+
+@include media.breakpoint-up(lg) {
+  @include meta.load-css("large");
+}
+
+@include media.breakpoint-up(xl) {
+  @include meta.load-css("extra-large");
+}
