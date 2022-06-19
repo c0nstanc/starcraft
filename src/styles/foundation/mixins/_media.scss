@@ -1,17 +1,1 @@
-@use '../variables/breakpoint' as breakpoint;
-
-@mixin breakpoint-up($name, $breakpoints: breakpoint.$grid-breakpoints) {
-  $min: breakpoint-min($name, $breakpoints);
-  @if $min {
-    @media (min-width: $min) {
-      @content;
-    }
-  } @else {
-    @content;
-  }
-}
-
-@function breakpoint-min($name, $breakpoints: breakpoint.$grid-breakpoints) {
-  $min: map-get($breakpoints, $name);
-  @return if($min != 0, $min, null);
-}
+@forward "@c0nstanc/foundation-styles/scss/mixins/media";
