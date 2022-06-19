@@ -1,0 +1,4 @@
+@use "../mixins/svg" as svg;
+@use "../variables/svg" as var_svg;
+
+@include svg.generate-classes-for-svg-catalog(var_svg.$svg-catalog);

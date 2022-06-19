@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { LayoutModule } from './layout/layout.module';
+import { SpinnersModule } from '@c0nstanc/loaders-lib/spinners';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,9 @@ import { LayoutModule } from './layout/layout.module';
 
     // Core
     CoreModule,
+
+    // Loaders Module
+    SpinnersModule,
 
     AppRoutingModule
   ],

@@ -1,0 +1,13 @@
+// @use "@angular/material" as mat;
+// @use "@c0nstanc/material-styles/scss/theming/material-theme" as theme;
+
+// $primary: map-get(theme.$material-theme, primary);
+// $material-default-color: map-get($primary, default);
+// // // $primary: map-get($color, primary);
+// // // $primary: map-get($color, primary);
+
+// // @debug "material theme: #{theme.$material-theme}";
+
+// @each $key, $value in theme.$material-theme {
+//   @debug "material theme: #{$key}";
+// }

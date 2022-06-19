@@ -2,6 +2,6 @@
 
 @forward "styles/foundation";
 
-@forward "styles/bootstrap" hide breakpoint-min;
+@forward "styles/bootstrap" hide breakpoint-min, $grid-breakpoints;
 
 @forward "styles/material";
