@@ -1,14 +1,10 @@
-import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
+import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Observable, of } from 'rxjs';
-import { VOID } from 'src/app/core/common/model';
 
+export const damageCalculatorPageResolver =
+  (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => new DamageCalculatorPageResolver().resolve(route, state);
 
-@Injectable({ providedIn: 'root' })
-export class DamageCalculatorPageResolver implements Resolve<undefined | null> {
-
-  constructor(
-  ) { }
+class DamageCalculatorPageResolver {
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<undefined | null> {
 

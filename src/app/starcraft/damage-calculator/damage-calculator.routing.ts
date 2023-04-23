@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DamageCalculatorPageComponent } from './component/damage-calculator-page/damage-calculator-page.component';
-import { DamageCalculatorPageResolver } from './damage-calculator-page.resolver';
-import { CanDeactivateDamageCalculatorPageGuard } from './guard/can-deactivate-damage-calculator-page.guard';
+import { damageCalculatorPageResolver } from './damage-calculator-page.resolver';
+import { canDeactivateDamageCalculatorPageGuard } from './guard/can-deactivate-damage-calculator-page.guard';
 
 const routes: Routes = [
   {
@@ -10,9 +10,9 @@ const routes: Routes = [
     pathMatch: 'full',
     component: DamageCalculatorPageComponent,
     resolve: {
-      model: DamageCalculatorPageResolver
+      model: damageCalculatorPageResolver
     },
-    canDeactivate: [CanDeactivateDamageCalculatorPageGuard]
+    canDeactivate: [canDeactivateDamageCalculatorPageGuard]
   },
 ];
 

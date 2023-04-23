@@ -1,11 +1,19 @@
-import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanDeactivate, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class CanDeactivateDamageCalculatorPageGuard implements CanDeactivate<unknown> {
+export const canDeactivateDamageCalculatorPageGuard = (
+  component: unknown,
+  currentRoute: ActivatedRouteSnapshot,
+  currentState: RouterStateSnapshot,
+  nextState?: RouterStateSnapshot) => new CanDeactivateDamageCalculatorPageGuard().canDeactivate(
+    component,
+    currentRoute,
+    currentState,
+    nextState
+  )
+
+
+class CanDeactivateDamageCalculatorPageGuard {
 
   canDeactivate(
     component: unknown,
