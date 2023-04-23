@@ -1,0 +1,8 @@
+{
+  "/api": {
+    "target": "https://sc2arcade.com",
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}

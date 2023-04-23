@@ -1,5 +1,59 @@
+<!-- <ng-container *ngIf="activeLobbies$ | async as activeLobbies">
+  <ng-container *ngFor="let activeLobby of activeLobbies">
+    {{ activeLobby | json }}
+    <br />
+    <br />
+    <br />
+  </ng-container>
+</ng-container>
 
 <div class="test padding-top--2xl">
   <p>damage-calculator-page works!</p>
+</div> -->
+
+<mat-form-field>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Filter" />
+</mat-form-field>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <ng-container matColumnDef="regionId">
+    <th mat-header-cell *matHeaderCellDef>Host</th>
+    <td mat-cell *matCellDef="let hero">{{ hero.regionId }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="hostname">
+    <th mat-header-cell *matHeaderCellDef>Ability</th>
+    <td mat-cell *matCellDef="let hero">{{ hero.hostName }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
+
+<br /><br />
+<br />
+<br />
+
+<div class="form-group">
+  <input
+    type="text"
+    class="form-control"
+    (keyup)="applyFilterr($event)"
+    placeholder="Filter"
+  />
 </div>
 
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Ability</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let hero of filterLobbies">
+      <td>{{ hero.regionId }}</td>
+      <td>{{ hero.hostName }}</td>
+    </tr>
+  </tbody>
+</table>

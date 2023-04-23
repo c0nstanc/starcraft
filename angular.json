@@ -84,7 +84,8 @@
               "browserTarget": "starcraft:build:production"
             },
             "development": {
-              "browserTarget": "starcraft:build:development"
+              "browserTarget": "starcraft:build:development",
+              "disableHostCheck": true
             }
           },
           "defaultConfiguration": "development"
