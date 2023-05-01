@@ -1,6 +1,56 @@
-<cui-simple-accordion [expanded]="false">
-  <div class="accordion__tab">test</div>
-  <p>playground works!</p>
-</cui-simple-accordion>
+<app-header></app-header>
 
-<cui-simple-spinner [isLoading]="true"></cui-simple-spinner>
+<div class="margin--md">
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name" placeholder="Enter your name" />
+</div>
+<br /><br /><br /><br />
+
+<div class="margin--lg">
+  <input
+    placeholder="Password"
+    type="password"
+    #evaluator="passwordEvaluator"
+  />
+  Password is
+  <ng-container [ngSwitch]="evaluator.strength">
+    <span *ngSwitchCase="'weak'">Weak</span>
+    <span *ngSwitchCase="'medium'">Medium</span>
+    <span *ngSwitchCase="'strong'">Strong</span>
+  </ng-container>
+</div>
+<br /><br /><br /><br />
+
+<div class="margin--sm">
+  <div *showPatates="true">oftes</div>
+</div>
+<br /><br /><br /><br />
+
+<div class="flex-direction--column">
+  <a href="https://google.com">Google</a>
+  <a href="https://google.com" noBlank>Google</a>
+</div>
+<br /><br /><br /><br />
+
+<div (clickAway)="onOutsideClick()">
+  <h1>Click outside of me!</h1>
+</div>
+
+<br /><br /><br /><br />
+
+<div>
+  Really long content goes here
+  <div (scrollIntoView)="loadMoreContent()">Dynamic content goes here</div>
+</div>
+
+<br /><br /><br /><br />
+
+<!-- <main>
+  <span *portal="'header'"> This will go to header </span>
+  <span>Some content</span>
+</main> -->
+
+<main>
+  <span *portal="'header'">{{ someData }}</span>
+  <button (click)="changeContent()">Change Content</button>
+</main>
