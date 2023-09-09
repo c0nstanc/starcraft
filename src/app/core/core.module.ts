@@ -1,28 +1,37 @@
-import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpClientModule,
+  HTTP_INTERCEPTORS,
+} from '@angular/common/http';
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { EnsureModuleLoadedOnceInAppModuleGuard } from '@c0nstanc/foundation-lib/guards';
-import { HttpErrorHandlingService, HttpErrorInterceptor } from '@c0nstanc/foundation-lib/http-utils';
-import { NavigationModule, NAVIGATION_LOGGING_SERVICE } from '@c0nstanc/foundation-lib/navigation';
+import {
+  HttpErrorHandlingService,
+  HttpErrorInterceptor,
+} from '@c0nstanc/foundation-lib/http-utils';
+import {
+  NavigationModule,
+  NAVIGATION_LOGGING_SERVICE,
+} from '@c0nstanc/foundation-lib/navigation';
 import { environment } from '@env';
-import { IModuleTranslationOptions, ModuleTranslateLoader } from '@larscom/ngx-translate-module-loader';
+import {
+  IModuleTranslationOptions,
+  ModuleTranslateLoader,
+} from '@larscom/ngx-translate-module-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { LoggerModule } from 'ngx-logger';
 import { GlobalErrorHandlingService } from './error/global.error-handling.service';
 import { LoggingService } from './logging/logging.service';
-
+import { SpinnersModule } from '@c0nstanc/loaders-lib/spinners';
 
 const moduleHttpLoaderFactory = (http: HttpClient) => {
   const baseTranslateUrl = './assets/i18n';
   const options: IModuleTranslationOptions = {
-    modules: [
-      { baseTranslateUrl },
-      { moduleName: 'footer', baseTranslateUrl },
-    ],
+    modules: [{ baseTranslateUrl }, { moduleName: 'footer', baseTranslateUrl }],
     lowercaseNamespace: true,
   };
   return new ModuleTranslateLoader(http, options);
 };
-
 
 @NgModule({
   declarations: [],
@@ -33,22 +42,22 @@ const moduleHttpLoaderFactory = (http: HttpClient) => {
       loader: {
         provide: TranslateLoader,
         useFactory: moduleHttpLoaderFactory,
-        deps: [HttpClient]
-      }
+        deps: [HttpClient],
+      },
     }),
     LoggerModule.forRoot({
       serverLoggingUrl: environment.serverLoggingUrl,
       serverLogLevel: environment.serverLogLevel,
       level: environment.logLevel,
-      disableConsoleLogging: environment.disableConsoleLogging
+      disableConsoleLogging: environment.disableConsoleLogging,
     }),
     // ProvidersModule,
-    NavigationModule
+    NavigationModule,
   ],
   providers: [
     {
       provide: HttpErrorHandlingService,
-      useExisting: GlobalErrorHandlingService
+      useExisting: GlobalErrorHandlingService,
     },
     {
       provide: HTTP_INTERCEPTORS,
@@ -58,7 +67,8 @@ const moduleHttpLoaderFactory = (http: HttpClient) => {
     { provide: NAVIGATION_LOGGING_SERVICE, useExisting: LoggingService },
     // DefaultCurrencyCodeProvider,
     // MatDateLocaleProvider
-  ]
+    SpinnersModule,
+  ],
 })
 export class CoreModule extends EnsureModuleLoadedOnceInAppModuleGuard {
   constructor(@Optional() @SkipSelf() targetModule: CoreModule) {
