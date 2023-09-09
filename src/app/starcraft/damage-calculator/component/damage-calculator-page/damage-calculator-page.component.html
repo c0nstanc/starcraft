@@ -51,7 +51,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let hero of filterLobbies">
+    <tr *ngFor="let hero of filterLobbies; trackBy: trackByFn">
       <td>{{ hero.regionId }}</td>
       <td>{{ hero.hostName }}</td>
     </tr>

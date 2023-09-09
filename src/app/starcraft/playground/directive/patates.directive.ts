@@ -1,16 +1,27 @@
-import { ComponentRef, Directive, DoCheck, EmbeddedViewRef, Input, OnChanges, OnInit, TemplateRef, ViewContainerRef, inject } from '@angular/core';
+import {
+  ComponentRef,
+  Directive,
+  DoCheck,
+  EmbeddedViewRef,
+  Input,
+  OnChanges,
+  OnInit,
+  TemplateRef,
+  ViewContainerRef,
+  inject,
+} from '@angular/core';
 import { PatatesComponent } from '../component/patates/patates.component';
 
 @Directive({
-  selector: '[showPatates]'
+  // eslint-disable-next-line @angular-eslint/directive-selector
+  selector: '[showPatates]',
 })
 export class PatatesDirective implements OnInit, DoCheck, OnChanges {
-
   private readonly templateRef = inject(TemplateRef);
   private readonly vcRef = inject(ViewContainerRef);
 
   @Input() showPatates = false;
-  templateView: EmbeddedViewRef<any>;
+  templateView: EmbeddedViewRef<unknown>;
   patatesRef: ComponentRef<PatatesComponent>;
 
   ngOnInit() {

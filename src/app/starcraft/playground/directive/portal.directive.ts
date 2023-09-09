@@ -1,9 +1,18 @@
-import { AfterViewInit, Directive, Input, OnDestroy, TemplateRef, ViewContainerRef, inject } from '@angular/core';
+import {
+  AfterViewInit,
+  Directive,
+  Input,
+  OnDestroy,
+  TemplateRef,
+  ViewContainerRef,
+  inject,
+} from '@angular/core';
 import { PortalService } from '../service/portal.service';
 import { TemplatePortal } from '@angular/cdk/portal';
 
 @Directive({
-  selector: "[portal]",
+  // eslint-disable-next-line @angular-eslint/directive-selector
+  selector: '[portal]',
   standalone: true,
 })
 export class PortalDirective implements AfterViewInit, OnDestroy {
@@ -13,10 +22,7 @@ export class PortalDirective implements AfterViewInit, OnDestroy {
   @Input() portal!: string;
 
   ngAfterViewInit() {
-    const portalRef = new TemplatePortal(
-      this.templateRef,
-      this.vcRef,
-    );
+    const portalRef = new TemplatePortal(this.templateRef, this.vcRef);
     this.portalService.sendPortal(this.portal, portalRef);
   }
 

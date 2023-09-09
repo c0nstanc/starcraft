@@ -1,14 +1,20 @@
-import { AfterViewInit, Directive, ElementRef, HostBinding, OnDestroy, OnInit, inject } from '@angular/core';
+import {
+  AfterViewInit,
+  Directive,
+  ElementRef,
+  HostBinding,
+  OnDestroy,
+  OnInit,
+  inject,
+} from '@angular/core';
 
 @Directive({
+  // eslint-disable-next-line @angular-eslint/directive-selector
   selector: 'a:not([noBlank])',
   standalone: true,
 })
-export class ExternalLinkDirective implements
-  OnInit, AfterViewInit, OnDestroy {
-  private readonly elRef: ElementRef<HTMLAnchorElement> = inject(
-    ElementRef,
-  );
+export class ExternalLinkDirective implements OnInit, AfterViewInit, OnDestroy {
+  private readonly elRef: ElementRef<HTMLAnchorElement> = inject(ElementRef);
   private readonly observer = new MutationObserver(() =>
     this.setAnchorTarget()
   );

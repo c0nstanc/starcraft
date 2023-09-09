@@ -12,5 +12,7 @@
 @include mat.all-legacy-component-typographies();
 @include mat.legacy-core();
 
-@include mat.all-legacy-component-themes(material-theme.$material-theme);
-@include mat.strong-focus-indicators-theme(material-theme.$material-theme);
+@include mat.all-legacy-component-themes(material-theme.$material-light-theme);
+@include mat.strong-focus-indicators-theme(
+  material-theme.$material-light-theme
+);

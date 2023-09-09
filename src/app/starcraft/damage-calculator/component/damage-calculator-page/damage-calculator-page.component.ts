@@ -2,35 +2,35 @@ import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { HttpLobby } from '@core/http/arcade/model/http-lobby.model';
 import { HttpSc2ArcadeLobbiesService } from '@core/http/arcade/service/http-sc2-arcade-lobbies.service';
-import { Observable, tap } from 'rxjs';
+import { tap } from 'rxjs';
 
 @Component({
   selector: 'app-damage-calculator-page',
   templateUrl: './damage-calculator-page.component.html',
-  styleUrls: ['./damage-calculator-page.component.scss']
+  styleUrls: ['./damage-calculator-page.component.scss'],
 })
 export class DamageCalculatorPageComponent implements OnInit {
-
   displayedColumns: string[] = ['regionId', 'hostname'];
   dataSource: MatTableDataSource<HttpLobby>;
 
   filterLobbies: HttpLobby[] = [];
   lobbies: HttpLobby[] = [];
 
-
   constructor(
     private httpSc2ArcadeLobbiesService: HttpSc2ArcadeLobbiesService
-  ) { }
+  ) {}
 
   ngOnInit(): void {
-
-    this.httpSc2ArcadeLobbiesService.getActiveLobbies().pipe(tap((lobbies: HttpLobby[]) => {
-      this.dataSource = new MatTableDataSource(lobbies)
-      this.lobbies = lobbies;
-      this.filterLobbies = lobbies;
-    }
-    )).subscribe();
-
+    this.httpSc2ArcadeLobbiesService
+      .getActiveLobbies()
+      .pipe(
+        tap((lobbies: HttpLobby[]) => {
+          this.dataSource = new MatTableDataSource(lobbies);
+          this.lobbies = lobbies;
+          this.filterLobbies = lobbies;
+        })
+      )
+      .subscribe();
   }
 
   applyFilter(event: Event) {
@@ -40,23 +40,27 @@ export class DamageCalculatorPageComponent implements OnInit {
 
   applyFilterr(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
-    this.filterLobbies = this.lobbies.filter(lobby => {
-      return lobby.hostName.toLowerCase().includes(filterValue.trim().toLowerCase());
+    this.filterLobbies = this.lobbies.filter((lobby) => {
+      return lobby.hostName
+        .toLowerCase()
+        .includes(filterValue.trim().toLowerCase());
     });
+  }
+
+  trackByFn(_index: number, hero: HttpLobby): string {
+    return hero.toString();
   }
 }
 
+// activeLobbies$: Observable<HttpLobby[]>;
 
+// constructor(
+//   private httpSc2ArcadeLobbiesService: HttpSc2ArcadeLobbiesService
+// ) { }
 
-  // activeLobbies$: Observable<HttpLobby[]>;
+// ngOnInit(): void {
 
-  // constructor(
-  //   private httpSc2ArcadeLobbiesService: HttpSc2ArcadeLobbiesService
-  // ) { }
-
-  // ngOnInit(): void {
-
-  //   this.activeLobbies$ =
-  // }
+//   this.activeLobbies$ =
+// }
 
 // }

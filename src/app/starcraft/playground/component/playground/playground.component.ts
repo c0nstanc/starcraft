@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { providePasswordEvaluatorFn } from '../../directive/password-evaluator.directive';
 
 @Component({
   selector: 'app-playground',
