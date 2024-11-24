@@ -13,8 +13,9 @@ import {
 import { PatatesComponent } from '../component/patates/patates.component';
 
 @Directive({
-  // eslint-disable-next-line @angular-eslint/directive-selector
-  selector: '[showPatates]',
+    // eslint-disable-next-line @angular-eslint/directive-selector
+    selector: '[showPatates]',
+    standalone: false
 })
 export class PatatesDirective implements OnInit, DoCheck, OnChanges {
   private readonly templateRef = inject(TemplateRef);

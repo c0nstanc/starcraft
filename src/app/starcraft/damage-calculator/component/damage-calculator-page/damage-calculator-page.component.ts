@@ -5,9 +5,10 @@ import { HttpSc2ArcadeLobbiesService } from '@core/http/arcade/service/http-sc2-
 import { tap } from 'rxjs';
 
 @Component({
-  selector: 'app-damage-calculator-page',
-  templateUrl: './damage-calculator-page.component.html',
-  styleUrls: ['./damage-calculator-page.component.scss'],
+    selector: 'app-damage-calculator-page',
+    templateUrl: './damage-calculator-page.component.html',
+    styleUrls: ['./damage-calculator-page.component.scss'],
+    standalone: false
 })
 export class DamageCalculatorPageComponent implements OnInit {
   displayedColumns: string[] = ['regionId', 'hostname'];

@@ -3,9 +3,10 @@ import { SimplePageSpinnerService, SpinnerConfig } from '@c0nstanc/loaders-lib/s
 import { Subject, takeUntil } from 'rxjs';
 import { BreakpointObserverService } from '@c0nstanc/foundation-lib/media';
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss'],
+    standalone: false
 })
 export class AppComponent implements OnInit, OnDestroy {
 
